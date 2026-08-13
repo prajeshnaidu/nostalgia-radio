@@ -11,8 +11,8 @@
   --color-rust: #c1613b;
   --color-smoke: #a89a86;
 
-  --font-display: var(--font-fraunces), Georgia, serif;
-  --font-body: var(--font-manrope), "Segoe UI", sans-serif;
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: "Segoe UI", Arial, sans-serif;
 
   --animate-blink: blink 1s step-end infinite;
 }
