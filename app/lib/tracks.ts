@@ -46,7 +46,7 @@ const playlistTwo: Playlist = {
   id: "golden-era-serenades",
   name: "Golden Era Serenades",
   tracks: [
-    { id: "t2-01", title: "Gulabi Aankhen", artist: "", film: "", year: 0, duration: 300, videoId: "" },
+    { id: "t2-01", title: "Gulabi Aankhen", artist: "Mohd Rafi", film: "The Train", year: 1970, duration: 300, videoId: "6Z3DO-OFIjQ" },
     { id: "t2-02", title: "O Mere Dil Ke Chain", artist: "", film: "", year: 0, duration: 300, videoId: "" },
     { id: "t2-03", title: "Yeh Shaam Mastani", artist: "", film: "", year: 0, duration: 300, videoId: "" },
     { id: "t2-04", title: "Pal Pal Dil Ke Paas", artist: "", film: "", year: 0, duration: 300, videoId: "" },
