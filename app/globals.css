@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette — pulled from a smoky amber bar-room at closing time, not a
+     generic dark UI: warm near-black ground, marigold light, dusty rust. */
+  --color-ink: #100b08;
+  --color-ink-soft: #1a130d;
+  --color-cream: #f4e9d8;
+  --color-marigold: #e2a23b;
+  --color-marigold-deep: #b9762a;
+  --color-rust: #c1613b;
+  --color-smoke: #a89a86;
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-body: var(--font-manrope), "Segoe UI", sans-serif;
+
+  --animate-blink: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes spin-vinyl {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+html,
+body {
+  height: 100%;
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+}
+
+/* ---------------------------------------------------------------- */
+/* 1. Hero background: scene-wide on landscape, scene-tall on portrait */
+/* ---------------------------------------------------------------- */
+.hero-bg {
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 0.35),
+      transparent 40%,
+      rgb(0 0 0 / 0.8)
+    ),
+    url("/bg/scene-wide.png");
+  background-size: cover;
+  background-position: center;
+}
+
+@media (orientation: portrait) {
+  .hero-bg {
+    background-image:
+      linear-gradient(
+        to bottom,
+        rgb(0 0 0 / 0.35),
+        transparent 40%,
+        rgb(0 0 0 / 0.8)
+      ),
+      url("/bg/scene-tall.png");
+  }
+}
+
+/* ---------------------------------------------------------------- */
+/* 2. Film-grain overlay — inline feTurbulence data URI, no asset file */
+/* ---------------------------------------------------------------- */
+.grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.3;
+}
+
+/* ---------------------------------------------------------------- */
+/* 3. Vinyl spin — driven by inline animationPlayState from JS        */
+/* ---------------------------------------------------------------- */
+.vinyl-spin {
+  animation: spin-vinyl 8s linear infinite;
+}
+
+/* ---------------------------------------------------------------- */
+/* 4. Glass pill recipe, shared by the desktop pill and mobile card   */
+/* ---------------------------------------------------------------- */
+.glass {
+  border: 1px solid rgb(255 255 255 / 0.1);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 0.15),
+    rgb(255 255 255 / 0.055)
+  );
+  backdrop-filter: blur(48px) saturate(1.7);
+  -webkit-backdrop-filter: blur(48px) saturate(1.7);
+  box-shadow:
+    0 16px 48px -12px rgb(0 0 0 / 0.8),
+    inset 0 1px 0 rgb(255 255 255 / 0.2);
+}
+
+/* Safe-area corners for the four fixed HUD elements */
+.safe-tl {
+  top: max(1rem, env(safe-area-inset-top));
+  left: max(1rem, env(safe-area-inset-left));
+}
+.safe-tr {
+  top: max(1rem, env(safe-area-inset-top));
+  right: max(1rem, env(safe-area-inset-right));
+}
+.safe-b {
+  bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vinyl-spin {
+    animation: none;
+  }
+}
