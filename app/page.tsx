@@ -7,7 +7,7 @@ import PlayerShell from "./components/player/PlayerShell";
 export default function Home() {
   return (
     <main className="relative flex min-h-dvh flex-1 flex-col items-center justify-between overflow-hidden">
-      <div aria-hidden className="hero-bg fixed inset-0 -z-20" />
+      <div aria-hidden className="hero-bg fixed inset-0 z-0" />
       <GrainOverlay />
 
       <div className="safe-tl fixed z-10">
