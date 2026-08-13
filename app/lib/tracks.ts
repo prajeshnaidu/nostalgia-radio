@@ -28,7 +28,7 @@ const playlistOne: Playlist = {
   tracks: [
     { id: "t1-01", title: "Yaaron", artist: "", film: "", year: 0, duration: 300, videoId: "" },
     { id: "t1-02", title: "Pal", artist: "", film: "", year: 0, duration: 300, videoId: "" },
-    { id: "t1-03", title: "Sach Keh Raha Hai Deewana", artist: "", film: "", year: 0, duration: 300, videoId: "" },
+    { id: "t1-03", title: "Sach Keh Raha Hai Deewana", artist: "K.K", film: "Rehnaa Hai Terre Dil Mein", year: 0, duration: 300, videoId: "hUVjx_RhMl0" },
     { id: "t1-04", title: "Kya Mujhe Pyaar Hai", artist: "", film: "", year: 0, duration: 300, videoId: "" },
     { id: "t1-05", title: "Beete Lamhein", artist: "", film: "", year: 0, duration: 300, videoId: "" },
     { id: "t1-06", title: "Awarapan Banjarapan", artist: "", film: "", year: 0, duration: 300, videoId: "" },
